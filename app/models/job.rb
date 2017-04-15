@@ -15,4 +15,6 @@ class Job < ApplicationRecord
   end
 
   scope :published, -> { where(is_hidden: false) }
+
+  has_many :resumes
 end

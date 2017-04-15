@@ -8,4 +8,5 @@ class User < ApplicationRecord
      email == 'davegle@gmail.com'
   end
 
+  has_many :resumes
 end
