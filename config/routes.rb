@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'welcome#index'
+  
   namespace :admin do
     resources :jobs do
       member do
@@ -11,15 +13,18 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   devise_for :users
   resources :jobs do
     resources :resumes
   end
 
+  resources :jobs do
+    collection do
+      get :search
+    end
+  end
 
 
-  root 'welcome#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
