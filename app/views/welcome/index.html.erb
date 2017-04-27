@@ -12,78 +12,27 @@
 
   /* Navbar */
 
+  .container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 
+  .navbar .navbar-brand {
+    display: inline-block;
+    margin-left: 30px;
+    padding-left: 50px;
+  }
 
- .navbar.navbar-default {
-   margin: 0px -15px 0px -15px;
-   border-color: transparent;
- }
+  .navbar {
+      margin-bottom: 0;
+      background-color: rgb(108,185,55);
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
 
-
-  .navbar-default {
-
-     background-color: rgb(108,185,55);  //背景颜色
-
-     border-color: #212121; //边框色
-
-     margin-bottom: 0px; //底部 margin 不撑开距离
- }
-
- @media (min-width: 768px) {
-   .navbar {
-     border-radius: 0; //圆角为0
-   }
- }
-
- .navbar-default .navbar-brand {
-   color: rgb(33,33,33); //字体颜色
-
-   padding: 10px 15px; //上下10px，左右15px
-   line-height: 30px; //文字行高
- }
-
-   .navbar-default .navbar-brand:hover,
- .navbar-default .navbar-brand:focus {
-   color: rgb(33,33,33); //鼠标放置在链接上的文字颜色
-
-   background-color: transparent; //鼠标放置在链接上的背景颜色，这里设为透明
- }
-
- .navbar-default .navbar-nav > li > a{
-   color: rgb(33,33,33);
-
- }
-
- .navbar-default .navbar-nav > li > a:hover,
- .navbar-default .navbar-nav > li > a:focus {
-   color: rgb(33,33,33);
-
-   background-color: transparent;
- }
-
- .navbar-default .navbar-nav > .active > a,
- .navbar-default .navbar-nav > .active > a:hover,
- .navbar-default .navbar-nav > .active > a:focus {
-   color: #FF6F00;
-
-   background-color: #FFE0B2;
-
- }
-
- .navbar-default .navbar-nav > .open > a,
- .navbar-default .navbar-nav > .open > a:focus,
- .navbar-default .navbar-nav > .open > a:hover {
-   background-color: rgb(108,185,55);
-
-   color: #212121;
-
- }
-
- .navbar-brand > img {
-      display: inline-block; //图片和链接文字显示在同一行
-      margin-right: 10px; //图片和链接文字拉开一点距离
-      width: 50px; //定制图片宽度
-      height: 32px; //定制图片高度
   }
 
 
@@ -96,14 +45,9 @@
       margin-left: -15px;
       margin-right: -15px;
       margin-bottom: 0px;
-
-
   }
 
-}
-  .row-center {
 
-  }
   .bg-grey {
       background-color: #f6f6f6;
   }
@@ -116,12 +60,49 @@
     padding: 60px 50px;
     border-radius: 0;
     height: 600px;
-
   }
 
   /*  about page*/
+.company {
+    padding: 50px 50px;
+    height: 320px;
+    width :100%
+}
 
-  .logo-small {
+.company-content {
+  height: 500px;
+}
+
+.company-content-left {
+    float: left;
+    width: 25%;
+    height: 300px;
+}
+
+.company-content-right {
+    float: right;
+    width: 75%;
+    height: 300px;
+}
+
+.company-logo-area {
+  margin-top : 0px;
+  height: 300px;
+}
+
+.company-logo-area-list{
+  float: left;
+  width: 100px;
+  height : 100px;
+  margin-right: 10px;
+}
+
+.company-logo-area-list-last {
+  margin-bottom: 0px
+
+}
+
+  /*.logo-small {
       color: rgb(108,185,55);
       font-size: 50px;
   }
@@ -135,7 +116,7 @@
         text-align: center;
         margin: 25px 0;
     }
-}
+}*/
 
  /* Portfolio */
 
@@ -236,20 +217,23 @@
 
 
 <!-- navbar -->
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped together for better mobile display -->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/"> Career Hunt</a>
-        </div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img src='<%= image_url 'favicon-leaf.ico' %>' > Career Hunt </a>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
+    </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <% if !current_user %>
-                    <li><a href="#" data-toggle="modal" data-target="#signup-modal">注册</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#login-modal">登入</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#signup-modal">Signup</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
                     <% else %>
                       <li class="dropdown">
                         <a href='#' class="dropdown-toggle" data-toggle="dropdown">
@@ -258,7 +242,7 @@
                         </a>
                           <ul class="dropdown-menu">
                             <% if current_user.admin? %>
-                            <li> <%= link_to("Admin panel", admin_jobs_path )%>
+                            <li> <%= link_to("Admin panel", admin_jobs_path )%> </li>
                             <% end %>
                             <li> <%= link_to("Logout", destroy_user_session_path, method: :delete) %> </li>
                         </ul>
@@ -268,9 +252,8 @@
                 </li>
             </ul>
         </div>
-        <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container-fluid -->
+
 </nav>
 
 
@@ -324,8 +307,56 @@
 </div>
 
 
-<!-- Container (About Section) -->
-<div class="container-fluid-1">
+  <!-- Container (About Section) -->
+    <div class="company">
+        <div class="company-content">
+            <div class="company-content-left">
+                <h2>Our Clients</h2>
+                <h4>World 500 Companies</h4>
+                <button class="btn btn-default btn-lg">Explore more</button>
+            </div>
+
+            <div class="company-content-right">
+
+              <div class="company-logo-area">
+                <div class="company-logo-area-list">
+                  <img src="http://ww4.sinaimg.cn/large/006tNc79gy1ff1301u9hfj305f05ft8s.jpg">
+                </div>
+                <div class="company-logo-area-list">
+                    <img src="http://ww4.sinaimg.cn/large/006tNc79gy1ff1aelv5aij305f05fa9z.jpg">
+                </div>
+                <div class="company-logo-area-list">
+                  <img src="http://ww4.sinaimg.cn/large/006tNc79gy1ff1aenfngfj305f05faa1.jpg">
+                </div>
+                <div class="company-logo-area-list company-logo-area-list-last">
+                  <img src="http://ww2.sinaimg.cn/large/006tNc79gy1ff1anxcvo0j305f05fa9y.jpg">
+                </div>
+             </div>
+          </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container-fluid-1">
   <div class="row">
     <div class="col-sm-8">
       <h2>Our Clients</h2>
@@ -349,12 +380,12 @@
       <p><strong>VISION:</strong> Our vision Lorem ipsum..</p>
     </div>
   </div>
-</div>
+</div> -->
 
 
  <!--  Service container-->
 
- <div class="container-fluid-1 text-center">
+ <div class="container-fluid-1 text-center bg-grey">
   <h2>SERVICES</h2>
   <h4>What we offer</h4>
   <br>
@@ -381,7 +412,7 @@
 
 <!-- Portfolio Section -->
 
-<div class="container-fluid-1 text-center bg-grey">
+<div class="container-fluid-1 text-center ">
   <h2>Portfolio</h2>
   <br><br/>
   <h4>What we have created</h4>
