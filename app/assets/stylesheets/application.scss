@@ -46,6 +46,63 @@
     padding-right: 0px;
 
 }
+
+.navbar-brand,
+.navbar-nav li a {
+  line-height: 40px;
+  height: 50px;
+  padding-top: 5px;
+
+}
+
+.navbar-brand > img {
+  display: inline-block; //图片和链接文字显示在同一行
+  margin-top: -10px;
+  margin-right: 10px; //图片和链接文字拉开一点距离
+  //width: 25px; //定制图片宽度
+  height: 35px; //定制图片高度
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+/* search space charactor*/
+
+#search-id {
+  padding-top: 10px;
+  width: 450px;
+
+
+}
+
+.jobs-show0 {
+  border-bottom: 1px dotted #CCC;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  font-family: PingFangSC-Medium, Arial, Helvetica, sans-serif;
+}
+
+/* searh.html 里的 table */
+
+.jobs-show {
+  border-top: 1px dotted #CCC;
+  border-bottom: 1px dotted #CCC;
+  padding: 15px;
+  margin-top: 0px;
+  font-family: PingFangSC-Medium, Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+.job-table {}
+
+/* Search.html.erb
+*/
+
+.search-info-title {
+  font-family: PingFangSC-Medium, Arial, Helvetica, sans-serif;
+  color: #0d6ded;
+  font-size: 20px;
+  text-align: center;
+}
 /* main box */
 
 .jumbotron {
@@ -138,7 +195,7 @@ margin-bottom: 0px
 
 }
 
-/*.logo-small {
+.logo-small {
     color: rgb(108,185,55);
     font-size: 50px;
 }
@@ -152,7 +209,7 @@ margin-bottom: 0px
       text-align: center;
       margin: 25px 0;
   }
-}*/
+}
 
 /* Portfolio */
 
