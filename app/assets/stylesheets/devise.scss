@@ -91,6 +91,7 @@ $btn-background-hover: #00DBE9;
     margin: 0 auto;
     .registration-btn {
       background: $btn-background;
+      background-color: rgb(108,185,55);  /* signup button color */
       border-radius: 6px;
       width: 100%;
       color: white;
