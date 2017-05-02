@@ -1,16 +1,27 @@
-<h1> Edit a job </h1>
+<div class="row">
+  <div class="col-md-8 col-md-offset-1">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-ttle"> Edit a Job </h1>
 
-  <%= simple_form_for [:admin, @job] do |f| %>
+      <div class="panel-body">
 
-  <%= f.input :category %>
-  <%= f.input :company %>
-  <%= f.input :location %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :wage_lower_bound, :label => "Wage Lower Bound" %>
-  <%= f.input :wage_upper_bound, :label => "Wage Upper Bound" %>
-  <%= f.input :contact_email %>
-  <%= f.input :is_hidden %>
+        <%= simple_form_for [:admin, @job] do |f| %>
 
-    <%= f.submit "Submit", :class => "btn btn-primary" %>
-  <% end %>
+        <%= f.input :category %>
+        <%= f.input :company %>
+        <%= f.input :location %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :wage_lower_bound, :label => "Wage Lower Bound" %>
+        <%= f.input :wage_upper_bound, :label => "Wage Upper Bound" %>
+        <%= f.input :contact_email %>
+        <%= f.input :is_hidden %>
+
+        <%= f.submit "Submit", :class => "btn btn-primary" %>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

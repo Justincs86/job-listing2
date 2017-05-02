@@ -279,6 +279,7 @@ margin-bottom: 0px
   position: relative;
   height: 250px;
   margin-bottom: 20px;
+  width: 850px;   /*----- layer width -----*/
 
 }
 
@@ -337,23 +338,49 @@ margin-bottom: 0px
 
 /*----- layout application -----*/
 
-html, body {
-  height: 100%;
-  margin: 0;
+body {
+   margin-bottom: 80px; //space with footer
 }
+
+html {                  //footer at bottom
+  position: relative;
+  min-height: 100%;
+}
+
 .body-content {
   min-height: 100%;
-  padding-bottom: 60px;
+
 }
+
 .footer {
   height: 80px;
   margin-top: -60px;
   background-color: rgb(108,185,55);
+  width: 100%;
+  position: absolute;  //footer at bottom(配合body,html的css)
+  bottom: 0;   // footer at bottom
 
   .text-center{
     padding-top: 20px;
+
   }
 }
+
+
+/*----- admin job -----*/
+
+.panel {
+  margin-top: 20px;
+}
+
+.paginate {
+  margin-bottom: 60px;
+  margin-right: 100px;
+
+
+}
+
+
 
 
 

@@ -4,51 +4,56 @@
 <br><br/>
 
 <div class="container-fluid">
-<div class="row">
-  <div class="col-md-11 ">
-<table class="table table-boldered table-striped custab" >
-  <thead>
-    <tr>
+    <div class="row">
+      <div class="col-md-11 pull-left">
+        <table class="table table-boldered table-striped custab" >
+          <thead>
+            <tr>
 
-        <td> Title </td>
-        <td> Resume </td>
-        <td> Company </td>
-        <td> Location </td>
-        <td> Category </td>
-        <td> Manage Status</td>
-        <td> Create Date </td>
-    <tr>
-  <thead>
+              <td> Title </td>
+              <td> Resume </td>
+              <td> Company </td>
+              <td> Location </td>
+              <td> Category </td>
+              <td> Manage Status</td>
+              <td> Create Date </td>
+              <tr>
+          <thead>
 
-  <tbody>
+          <tbody>
 
-    <% @jobs.each do |job| %>
+            <% @jobs.each do |job| %>
 
-    <tr>
-      <td>
-        <%= render_job_status(job) %>
+          <tr>
+            <td>
+              <%= render_job_status(job) %>
 
-        <%= link_to(job.title, admin_job_path(job)) %>
-      </td>
-      <td> <%= link_to(job.resumes.count, admin_job_resumes_path(job)) %> </td>
-      <td> <%= job.company %> </td>
-      <td> <%= job.location %> </td>
-      <td> <%= job.category %> </td>
-      <td>
-        <%= link_to("Edit", edit_admin_job_path(job), :class => "btn btn-xs btn-info") %>
-        <%= link_to("Destroy", admin_job_path(job), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" }) %>
+              <%= link_to(job.title, admin_job_path(job)) %>
+            </td>
+            <td> <%= link_to(job.resumes.count, admin_job_resumes_path(job)) %> </td>
+            <td> <%= job.company %> </td>
+            <td> <%= job.location %> </td>
+            <td> <%= job.category %> </td>
+            <td>
+              <%= link_to("Edit", edit_admin_job_path(job), :class => "btn btn-xs btn-info") %>
+              <%= link_to("Destroy", admin_job_path(job), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" }) %>
 
-        <% if job.is_hidden %>
-            <%= link_to("Publish", publish_admin_job_path(job) , :method => :post, :class => "btn btn-xs btn-success") %>
-        <% else %>
-            <%= link_to("Hide", hide_admin_job_path(job), :method => :post,  :class => "btn btn-xs btn-warning") %>
-        <% end %>
-      </td>
-      <td>
-        <%= job.created_at %>
-      </td>
-  <% end %>
-</table>
-</div>
-</div>
+              <% if job.is_hidden %>
+                <%= link_to("Publish", publish_admin_job_path(job) , :method => :post, :class => "btn btn-xs btn-success") %>
+              <% else %>
+                <%= link_to("Hide", hide_admin_job_path(job), :method => :post,  :class => "btn btn-xs btn-warning") %>
+              <% end %>
+            </td>
+            <td>
+              <%= job.created_at %>
+            </td>
+             <% end %>
+          </table>
+        </div>
+      </div>
+  </div>
+
+
+<div class="paginate text-center">
+    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails  %>
 </div>
