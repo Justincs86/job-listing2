@@ -2,30 +2,52 @@
   <br>
   <% if @jobs.blank? %>
     <br>
-    <h2 class="search-info-title">搜索信息不能为空，请输入关键字搜索</h2>
+    <h2 class="search-info-title">No results for your search</h2>
   <% else %>
-    <h2 class="search-info-title"> 有关"<%= @query_string %>"的工作信息 </h2>
+    <h2 class="search-info-title"> "<%= @query_string %>" Infomation List </h2>
     <div class="search-result">
 
-      <div class="row jobs-show0"></div>
-      <div class="job-table">
-        <% @jobs.each do |job| %>
-        <div class="row jobs-show">
+      <div class="row">
+        <div class="col-md-8 col-centered">
+          <% @jobs.each do |job| %>
+            <div id="job-section">
+               <div class="wrapper">
+                 <div class="job-section">
 
-          <div class="col-md-12 col-lg-9 col-lg-offset-1">
 
-            <div class="pull-right">
-              发布时间：<%= job.created_at.to_date %>
-            </div>
-            <p ><%= link_to(render_highlight_content(job,@query_string),job_path(job)) %></p>
+                   <div class="company">
+                     <h3>
+                       <%= link_to(job.title, job_path(job)) %>
+                     </h3>
+                     <div class="company-name">
+                       <p class="text"> <%= job.company %> </p>
+                     </div>
 
-          </div>
+										 <p>
+											 <i class="fa fa-location-arrow" aria-hidden="true"></i>
+										 			<%= job.location %>
+										 </br>
+											 <i class="icon fa fa-usd" aria-hidden="true"></i>
+	                    		<%= job.wage_lower_bound / 1000 %> K -
+	                    	  <%= job.wage_upper_bound / 1000 %> K
+										 </p>
+
+										 <p> <%= job.description %> </p>
+                   </div>
+
+
+                     <div class="button">
+                       <%= link_to(('Apply now'), new_job_resume_path(job), class: "btn btn-info", method: :get) %>
+                     </div>
+                   </div>
+
+                </div>
+               </div>
+
+          <% end %>
         </div>
-        <% end %>
       </div>
+
     </div>
-    <div class="text-center">
-      <%= will_paginate(@jobs, renderer: BootstrapPagination::Rails) %>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>

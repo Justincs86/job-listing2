@@ -10,6 +10,9 @@
         <div class="panel-body">
           <%= simple_form_for @job do |f| %>
 
+          <%= f.input :category %>
+          <%= f.input :company %>
+          <%= f.input :location %>
           <%= f.input :title %>
           <%= f.input :description %>
           <%= f.input :wage_lower_bound, :label => "Wage Lower Bound" %>

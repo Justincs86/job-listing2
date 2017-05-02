@@ -4,6 +4,12 @@ class JobsController < ApplicationController
 
   def index
     @jobs = case params[:order]
+            when "by_category"
+              Job.published.category.paginate(:page => params[:page], :per_page => 15)
+            when "by_company"
+              Job.published.company.paginate(:page => params[:page], :per_page => 15)
+            when "by_location"
+              Job.published.location.paginate(:page => params[:page], :per_page => 15)
             when 'by_lower_bound'
               Job.published.order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 15)
             when 'by_upper_bound'
@@ -78,7 +84,7 @@ class JobsController < ApplicationController
 
 
   def search_criteria(query_string)
-    { :title_cont => query_string }
+    { :title_or_company_or_location_or_category_cont => query_string }
   end
 
 
@@ -87,7 +93,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :is_hidden)
+    params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :is_hidden, :location, :company, :category)
   end
 
 
