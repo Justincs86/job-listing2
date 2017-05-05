@@ -18,7 +18,7 @@ puts 'Admin account is created successfully!'
 
 
 
-for i in 1..10 do
+for i in 1..5 do
 
                 Job.create!([
                 category: "Technology",
@@ -32,7 +32,7 @@ for i in 1..10 do
                 ])
               end
 
-for i in 1..10 do
+for i in 1..5 do
 
               Job.create!([
                 category: "Technology",
@@ -47,7 +47,7 @@ for i in 1..10 do
               end
 
 
-for i in 1..10 do
+for i in 1..5 do
 
                 Job.create!([
                   category: "Business",
@@ -60,3 +60,31 @@ for i in 1..10 do
                   is_hidden: "false"
                   ])
                 end
+
+for i in 1..5 do
+
+                Job.create!([
+                category: "Engineering",
+                company: "Google",
+                location: "California, United States",
+                title: "Junior Engineering",
+                description: "Business Development by organizing activities and training, monitoring, performance review and sales activities.",
+                wage_lower_bound: rand(5..10) * 1000,
+                wage_upper_bound: rand(6..12) * 1000,
+                is_hidden: "false"
+                ])
+              end
+
+for i in 1..5 do
+
+                Job.create!([
+                category: "Engineering",
+                company: "Paloalto",
+                location: "California, United States",
+                title: "Mobile developer",
+                description: "Business Development by organizing activities and training, monitoring, performance review and sales activities.",
+                wage_lower_bound: rand(5..10) * 1000,
+                wage_upper_bound: rand(6..12) * 1000,
+                is_hidden: "false"
+                ])
+              end

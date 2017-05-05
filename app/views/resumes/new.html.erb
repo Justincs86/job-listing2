@@ -4,7 +4,7 @@
 <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-default resume">
         <div class="panel-heading">
-            <h1> Submit Resume </h1>
+            <h3> Submit Resume for <%= @job.title %> </h3>
         </div>
 
         <div class="panel-body">
@@ -12,7 +12,7 @@
             <%= f.input :content %>
             <%= f.input :attachment %>
 
-            <%= f.submit "送出" %>
+            <%= f.submit "Submit", class: "btn btn-info" %>
           <% end %>
         </div>
       </div>

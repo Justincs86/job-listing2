@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title> Job listing </title>
+      <title> Career Hunt </title>
       <%= csrf_meta_tags %>
 
       <%= stylesheet_link_tag     'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag  'application', 'data-turbolinks-track': 'reload' %>
+      <link rel="shortcut icon" href="/images/favicon-leaf.ico">
   </head>
 
   <body>
@@ -26,7 +27,8 @@
        </div>
      </div>
 
-    <%= render "common/footer" %>
-
+     <div class="panel">
+        <%= render "common/footer" %>
+     </div>
   </body>
 </html>

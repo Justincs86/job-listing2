@@ -1,9 +1,26 @@
-<h1> <%= @job.title %> </h1>
-
-<p>
-  <%= simple_format(@job.description) %>
-</p>
-
-<div class="text-center">
-  <%= link_to("投交履历", new_job_resume_path(@job), :style => "font-size: 30px; text-decoretion: underline;") %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1> <%= @job.title %> </h1>
+      </div>
+      <div class="panel-body">
+        <div class="description">
+          <h4 class="job-ads-h2"><i class="fa fa-info-circle" aria-hidden="true"></i> JOB DESCRIPTION</h4>
+          <div itemprop="description" class="unselectable wrap-text" id="job_description">
+            <div><strong>Job Description: </strong></div>
+            <div> <%= @job.description %></div>
+            <div> Company:<%= @job.company %> </div>
+            <div> Location:<%= @job.location %> </div>
+            <div> Salary range:<%= @job.wage_lower_bound / 1000 %> K -
+              <%= @job.wage_upper_bound / 1000 %> K
+            </div>
+          </div>
+          <div class="text-center">
+            <%= link_to("Submit Resume", new_job_resume_path(@job), :style => "font-size: 16px; text-decoretion: underline;", :class => "btn btn-success") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

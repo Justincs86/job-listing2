@@ -22,9 +22,8 @@
 <div class="jumbotron text-center">
   <h1>Move up in your career</h1>
   <p>Your dream starts here</p>
-  <div class="container-fluid">
-     <div class="row">
-         <div class="col-md-4 col-md-offset-4">
+  <div class="search-bar">
+         <div class="col-md-4 col-md-offset-4 search">
                 <%= form_tag search_jobs_path , :method => :get do %>
                 <div class="input-group" >
                       <input type="text" class="form-control" name="q" value="<%= params[:q] %>" placeholder="Enter Job, Company, Location Keyword">
@@ -36,14 +35,14 @@
                 </div>
                 <% end %>
           </div>
-           <div class="col-sm-1 id="explore"">
+           <div class="col-md-1 explore">
                    <a class="btn btn-primary pull-left" href="jobs" role="button">Explore More Jobs</a>
            </div>
 
          </div>
 
     </div>
-  </div>
+
 
 
   <!-- Container (About Section) -->

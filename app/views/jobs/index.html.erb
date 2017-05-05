@@ -1,26 +1,20 @@
-<div class="col-md-12">
-	<div class="row">
-		<div class="col-md-8">
-		</div>
-		<div class="col-md-4">
-      <div class="dropdown clearfix pull-right">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
-          Option
-          <span class="caret"></span>
-        </button>
 
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
-          <li> <%= link_to("Category", jobs_path(:order => "by_category") ) %>
-          <li> <%= link_to("Company", jobs_path(:order => "by_company") ) %>
-          <li> <%= link_to("Location", jobs_path(:order => "by_location") ) %>
-          <li> <%= link_to("Salary Min.", jobs_path(:order => "by_lower_bound")) %> </li>
-          <li> <%= link_to("Salary Max", jobs_path(:order => "by_upper_bound")) %> </li>
-          <li> <%= link_to("Newly Created", jobs_path) %> </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+	<div class="col-md-offset-8 col-md-2">
+		<div class="dropdown clearfix pull-right">
+			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+				 Career Option
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+				<li> <%= link_to("Category", jobs_path(:order => "by_category") ) %>
+					<li> <%= link_to("Company", jobs_path(:order => "by_company") ) %>
+						<li> <%= link_to("Location", jobs_path(:order => "by_location") ) %>
+							<li> <%= link_to("Salary Min.", jobs_path(:order => "by_lower_bound")) %> </li>
+							<li> <%= link_to("Salary Max", jobs_path(:order => "by_upper_bound")) %> </li>
+							<li> <%= link_to("Newly Created", jobs_path) %> </li>
+						</ul>
+					</div>
+				</div>
 
 
 
@@ -31,52 +25,50 @@
 
 
 
+										<div class="row">
+										<div class="col-md-8 col-md-offset-2">
+											<div id="job-section">
 
-      <div class="row">
-        <div class="col-md-8 col-centered">
-          <% @jobs.each do |job| %>
-            <div id="job-section">
-               <div class="wrapper">
-                 <div class="job-section">
+											<% @jobs.each do |job| %>
+											<div class="job-section">
 
+                        <!-- company info -->
+												<div class="col-md-10 col-sm-10">
+												  <div class="company">
 
-                   <div class="company">
-                     <h3>
-                       <%= link_to(job.title, job_path(job)) %>
-                     </h3>
-                     <div class="company-name">
-                       <p class="text"> <%= job.company %> </p>
-                     </div>
+                              <h3>
+                                <%= link_to(job.title, job_path(job)) %>
+                              </h3>
+                              <div class="company-name">
+                                <p class="text"> <%= job.company %> </p>
+                              </div>
+                              <p>
+                                <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                                <%= job.location %>
+                              </br>
+                              <i class="icon fa fa-usd" aria-hidden="true"></i>
+                              <%= job.wage_lower_bound / 1000 %> K -
+                              <%= job.wage_upper_bound / 1000 %> K
+                            </p>
+                            <p> <%= job.description %> </p>
+                          </div>
+												</div>
 
-										 <p>
-											 <i class="fa fa-location-arrow" aria-hidden="true"></i>
-										 			<%= job.location %>
-										 </br>
-											 <i class="icon fa fa-usd" aria-hidden="true"></i>
-	                    		<%= job.wage_lower_bound / 1000 %> K -
-	                    	  <%= job.wage_upper_bound / 1000 %> K
-										 </p>
+                        <!-- button -->
+                        <div class="col-sm-2 pull-right">
+													<div class="button">
+                            <%= link_to(('Apply now'), new_job_resume_path(job), class: "btn btn-info", method: :get) %>
+													</div>
+                        </div>
 
-										 <p> <%= job.description %> </p>
-                   </div>
+							      	</div>
+											<% end %>
 
+									</div>
+									<!-- pagination -->
+									<div class="text-center">
+	 								 <%= will_paginate @jobs, renderer: BootstrapPagination::Rails  %>
+	 							 </div>
 
-                     <div class="button">
-                       <%= link_to(('Apply now'), new_job_resume_path(job), class: "btn btn-info", method: :get) %>
-                     </div>
-                   </div>
-
-                </div>
-               </div>
-
-          <% end %>
-        </div>
-      </div>
-
-
-
-
-
-<div class="text-center">
-    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails  %>
-</div>
+							 </div>
+							 </div>
