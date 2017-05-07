@@ -302,11 +302,11 @@
 }
 
 /*----- second layer (contain third layer, affect width and height) -----*/
-.wrapper {
-
-
-
-}
+// .wrapper {
+//
+//
+//
+// }
 
 /*----- third layer (contain shown-block info)-----*/
 
@@ -353,6 +353,15 @@
     margin-bottom: 50px;
   }
 
+
+
+/*----- Suggestion section -----*/
+
+.suggest-body {
+  background-color: rgb(207,216,220);
+  border-top: 5px solid ;
+  padding: 5px;
+}
 
 
 

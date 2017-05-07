@@ -2,7 +2,7 @@
 	<div class="col-md-offset-8 col-md-2">
 		<div class="dropdown clearfix pull-right">
 			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
-				 Career Option
+				  Job filter by
 				<span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
@@ -40,17 +40,17 @@
                                 <%= link_to(job.title, job_path(job)) %>
                               </h3>
                               <div class="company-name">
-                                <p class="text"> <%= job.company %> </p>
+                                <p class="text"> Company :<%= job.company %> </p>
                               </div>
                               <p>
                                 <i class="fa fa-location-arrow" aria-hidden="true"></i>
-                                <%= job.location %>
+                                 Location :<%= job.location %>
                               </br>
                               <i class="icon fa fa-usd" aria-hidden="true"></i>
-                              <%= job.wage_lower_bound / 1000 %> K -
-                              <%= job.wage_upper_bound / 1000 %> K
+                              Salary : <%= job.wage_lower_bound / 1000 %> K -
+                              				<%= job.wage_upper_bound / 1000 %> K
                             </p>
-                            <p> <%= job.description %> </p>
+                            <p> Description : <%= job.description %> </p>
                           </div>
 												</div>
 
@@ -66,9 +66,38 @@
 
 									</div>
 									<!-- pagination -->
-									<div class="text-center">
-	 								 <%= will_paginate @jobs, renderer: BootstrapPagination::Rails  %>
-	 							 </div>
+
 
 							 </div>
-							 </div>
+
+							 <div class="col-md-2">
+								 <div class="suggestion">
+									 <div class="suggest-title">
+										 <h3>Browse Jobs</h3>
+									 </div>
+									     <% @suggests.each do |job| %>    <!-- repeat loop -->
+										<div class="suggest-body">
+										  <div><p>  Job: <%= link_to job_path(job), target: "_blank" do %>
+													<%= job.title %>
+													<% end %>  </p>
+											</div>
+
+											<div><p> Company : <%= link_to job_path(job), target: "_blank" do %>
+												<%= job.company %> </p>
+												<% end %>
+											</div>
+
+											<div><p> Salary : <%= job.wage_lower_bound / 1000 %> K -
+																				<%= job.wage_upper_bound / 1000 %> K </p>
+											</div>
+										</div>
+									<% end %>
+									</div>
+								</div>
+							</div>
+
+
+
+							 <div class="text-center">
+			 				 <%= will_paginate @jobs, renderer: BootstrapPagination::Rails  %>
+			 			 </div>

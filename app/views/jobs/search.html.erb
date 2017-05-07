@@ -4,43 +4,51 @@
     <br>
     <h2 class="search-info-title">No results for your search</h2>
   <% else %>
-    <h2 class="search-info-title"> "<%= @query_string %>" Infomation List </h2>
+    <h2 class="search-info-title"> "<%= @query_string %>"  Job Available </h2>
     <div class="search-result">
       <div class="row">
-        <div class="col-md-8 col-centered">
-          <% @jobs.each do |job| %>
-            <div id="job-section">
-              <div class="wrapper">
-                <div class="job-section">
-                  <div class="company">
-                    <h3>
-                      <%= link_to(job.title, job_path(job)) %>
-                    </h3>
-                    <div class="company-name">
-                      <p class="text"> <%= job.company %> </p>
-                    </div>
-                    <p>
-                      <i class="fa fa-location-arrow" aria-hidden="true"></i>
-                      <%= job.location %>
-                    </br>
-                    <i class="icon fa fa-usd" aria-hidden="true"></i>
-                    <%= job.wage_lower_bound / 1000 %> K -
-                    <%= job.wage_upper_bound / 1000 %> K
-                  </p>
-                  <p> <%= job.description %> </p>
+      <div class="col-md-8 col-md-offset-2">
+        <div id="job-section">
+
+        <% @jobs.each do |job| %>
+        <div class="job-section">
+
+          <!-- company info -->
+          <div class="col-md-10 col-sm-10">
+            <div class="company">
+
+                <h3>
+                  <%= link_to(job.title, job_path(job)) %>
+                </h3>
+                <div class="company-name">
+                  <p class="text"> Company :<%= job.company %> </p>
                 </div>
-                <div class="button">
-                  <%= link_to(('Apply now'), new_job_resume_path(job), class: "btn btn-info", method: :get) %>
-                </div>
-              </div>
+                <p>
+                  <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                   Location :<%= job.location %>
+                </br>
+                <i class="icon fa fa-usd" aria-hidden="true"></i>
+                Salary : <%= job.wage_lower_bound / 1000 %> K -
+                        <%= job.wage_upper_bound / 1000 %> K
+              </p>
+              <p> Description : <%= job.description %> </p>
             </div>
           </div>
+
+          <!-- button -->
+          <div class="col-sm-2 pull-right">
+            <div class="button">
+              <%= link_to(('Apply now'), new_job_resume_path(job), class: "btn btn-info", method: :get) %>
+            </div>
+          </div>
+
+        </div>
         <% end %>
       </div>
     </div>
-    <div class="text-center">
-      <%= will_paginate @jobs, renderer: BootstrapPagination::Rails  %>
-    </div>
+  </div>
+  <div class="text-center">
+    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails  %>
   </div>
 <% end %>
 </div>

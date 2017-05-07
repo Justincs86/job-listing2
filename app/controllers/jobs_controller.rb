@@ -3,6 +3,7 @@ class JobsController < ApplicationController
   before_action :validate_search_key, only: [:search]
 
   def index
+    @suggests = Job.published.random5
     @jobs = case params[:order]
             when "by_category"
               Job.published.category.paginate(:page => params[:page], :per_page => 15)

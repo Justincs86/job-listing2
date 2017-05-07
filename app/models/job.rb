@@ -22,6 +22,7 @@ class Job < ApplicationRecord
   scope :company, -> { order("company") }
   scope :category, -> { order("category") }
   scope :location, -> { order("location") }
+  scope :random5, -> { limit(5).order("RANDOM()") }
 
   has_many :resumes
 end
